@@ -35,10 +35,10 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 #<src>                                                 <mnt_point>            <type>  <mnt_flags and options>                            <fs_mgr_flags>
-system                                                  /system                ext4    ro,barrier=1                                 wait,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
-system_ext                                              /system_ext            ext4    ro,barrier=1                                 wait,avb=vbmeta_system,logical,first_stage_mount
-product                                                 /product               ext4    ro,barrier=1                                 wait,avb=vbmeta_system,logical,first_stage_mount
-vendor                                                  /vendor                ext4    ro,barrier=1                                 wait,avb=vbmeta_vendor,logical,first_stage_mount
+system                                                  /system                ext4    ro,barrier=1                                 wait,logical,first_stage_mount
+system_ext                                              /system_ext            ext4    ro,barrier=1                                 wait,logical,first_stage_mount
+product                                                 /product               ext4    ro,barrier=1                                 wait,logical,first_stage_mount
+vendor                                                  /vendor                ext4    ro,barrier=1                                 wait,first_stage_mount
 /dev/block/by-name/metadata                             /metadata              ext4    noatime,nosuid,nodev,discard                         wait,formattable,first_stage_mount
 #ifdef OPLUS_FEATURE_STORAGE
 #Xuefeng.Peng@ANDROID.STORAGE.0, 2020/06/02, Add for move cache mount before userdata and add check fs_mgr flag
